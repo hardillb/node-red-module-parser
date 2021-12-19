@@ -86,6 +86,12 @@ function getNodeDefinitions(htmlFile) {
                                         } else {
                                             errors.push({ code:"outputs-not-inline" });
                                         }
+                                    } else if (nodeDef.key.name === 'category') {
+                                        if (nodeDef.value.type === 'Literal') {
+                                            defs[defType].category = nodeDef.value.value;
+                                        } else {
+                                            errors.push({ code:"category-not-inline" });
+                                        }
                                     }
                                 });
                             } else {
