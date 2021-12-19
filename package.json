@@ -1,0 +1,19 @@
+{
+  "name": "node-red-module-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node-red-nodes.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ben@flowforge.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "acorn": "^8.6.0",
+    "acorn-walk": "^8.2.0",
+    "tar": "^6.1.11"
+  },
+  "devDependencies": {
+    "got": "^11.8.0"
+  }
+}
