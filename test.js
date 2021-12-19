@@ -4,8 +4,6 @@ const nodeRedNodes = require('./node-red-nodes.js')
 got('https://registry.npmjs.org/node-red-node-geofence/-/node-red-node-geofence-0.3.1.tgz').buffer()
 .then( buff => {
 
-    console.log(typeof buff)
-
     fs.writeFileSync("temp/node-red-node-geofence-0.3.1.tgz", buff)
 
     var defs = nodeRedNodes.examinTar("./temp/node-red-node-geofence-0.3.1.tgz", "temp")

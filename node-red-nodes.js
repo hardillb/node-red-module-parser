@@ -39,7 +39,22 @@ function getNodeDefinitions(htmlFile) {
                                             errors.push({ code:"defaults-not-inline" });
                                         } else {
                                             defs[defType].defaults = {};
-                                            nodeDef.value.properties.forEach(function(n) { defs[defType].defaults[n.key.name] = {}; });
+                                            nodeDef.value.properties.forEach(function(n) {
+                                                defs[defType].defaults[n.key.name] = {};
+                                                if (n.value.properties) {
+                                                    n.value.properties.forEach(v => {
+                                                        if (v.key.name === "value") {
+                                                            if (v.value.type === "Literal"){
+                                                                defs[defType].defaults[n.key.name].value = v.value.value
+                                                            } else if (v.value.type === "ArrayExpression") {
+                                                                defs[defType].defaults[n.key.name].value = v.value.elements
+                                                            } else if (v.value.type === "ObjectExpression") {
+                                                                //TODO
+                                                            }
+                                                        }
+                                                    })
+                                                }
+                                            });
                                         }
                                     } else if (nodeDef.key.name === 'credentials') {
                                         if (!nodeDef.value.properties) {
