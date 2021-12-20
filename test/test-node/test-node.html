@@ -1,0 +1,25 @@
+<script type="text/html" data-template-name="node-type">
+    
+</script>
+
+<script type="text/html" data-help-name="node-type">
+
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('test-node',{
+        category: 'test',
+        defaults: {
+            name: {value: ""},
+            number: {value: 42},
+            array: {value: []},
+            object: {value: {foo: "bar"}}
+        },
+        credentials:{
+            password: {type:"password"}
+        },
+        inputs: 1,
+        outputs: 2,
+        label: "test"
+    })
+</script>

@@ -4,11 +4,18 @@ const nodeRedNodes = require('./node-red-nodes.js')
 got('https://registry.npmjs.org/node-red-node-geofence/-/node-red-node-geofence-0.3.1.tgz').buffer()
 .then( buff => {
 
-    fs.writeFileSync("temp/node-red-node-geofence-0.3.1.tgz", buff)
+    fs.writeFileSync("test/node-red-node-geofence-0.3.1.tgz", buff)
 
-    var defs = nodeRedNodes.examinTar("./temp/node-red-node-geofence-0.3.1.tgz", "temp")
+    var defs = nodeRedNodes.examinTar("./test/node-red-node-geofence-0.3.1.tgz", "test")
 
-    console.log(JSON.stringify(defs, '  ',2 ))
+    console.log("tgz from download")
+    console.log(JSON.stringify(defs, ' ',2 ))
 
-    fs.rmSync("./temp/node-red-node-geofence-0.3.1.tgz")
+    fs.rmSync("./test/node-red-node-geofence-0.3.1.tgz")
 })
+.then( () => {
+    var defs = nodeRedNodes.examinModule("./temp/test-node")
+    console.log("\nLocal directory")
+    console.log(JSON.stringify(defs,' ',2))
+})
+

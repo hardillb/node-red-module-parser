@@ -32,7 +32,7 @@ function getNodeDefinitions(htmlFile) {
                             let defType = nodeTypeNode.value
                             if (nodeDefNode.type === 'ObjectExpression') {
                                 defs[defType] = {}
-                                count ++
+                                count++
                                 nodeDefNode.properties.forEach(function(nodeDef) {
                                     if (nodeDef.key.name === 'defaults') {
                                         if (!nodeDef.value.properties) {
