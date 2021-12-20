@@ -9,7 +9,7 @@ npm install node-red-module-parser
 ## Useage
 
 ```javascript
-const nodeRedModule = require('node-red-module-parser`)
+const nodeRedModule = require('node-red-module-parser')
 
 let moduleInfo = nodeRedModule.examinModule('/path/to/module/dir')
 let moduleInto = nodeRedModule.examinTar('/path/to/tar/file','/path/to/temp/dir/location')

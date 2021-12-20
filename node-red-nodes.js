@@ -49,7 +49,7 @@ function getNodeDefinitions(htmlFile) {
                                                             } else if (v.value.type === "ArrayExpression") {
                                                                 defs[defType].defaults[n.key.name].value = v.value.elements
                                                             } else if (v.value.type === "ObjectExpression") {
-                                                                //TODO
+                                                                //TODO How deep do we walk?
                                                             }
                                                         }
                                                     })
