@@ -144,7 +144,7 @@ function examinModule(modulePath) {
 
     package.types = []
 
-    if (package) {
+    if (package && package["node-red"]) {
         var nodes = package["node-red"].nodes
         package["node-red"].nodes = {}
         Object.keys(nodes).forEach(n => {
