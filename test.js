@@ -18,4 +18,8 @@ got('https://registry.npmjs.org/node-red-node-geofence/-/node-red-node-geofence-
     console.log("\nLocal directory")
     console.log(JSON.stringify(defs,' ',2))
 })
-
+.then( () => {
+    var defs = nodeRedNodes.examinModule("./test/test-node-2")
+    console.log("\nLocal directory")
+    console.log(JSON.stringify(defs,' ',2))
+})

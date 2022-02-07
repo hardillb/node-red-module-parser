@@ -5,7 +5,8 @@ const path = require('path')
 const acorn = require('acorn')
 
 function getNodeDefinitions(htmlFile) {
-    var regExp = /<script.+?type=['"]text\/javascript['"].*?>([\S\s]*?)<\/script>/ig;
+    // var regExp = /<script\s+?type=['"]text\/javascript['"]\s*?>([\S\s]*?)<\/script>/ig;
+    var regExp = /<script\s?(?:type=['"]text\/javascript['"])?\s?>([\S\s]*?)<\/script>/ig;
 
     var content = fs.readFileSync(htmlFile,'utf8');
     var parts = []

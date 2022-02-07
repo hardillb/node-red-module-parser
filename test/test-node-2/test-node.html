@@ -1,0 +1,34 @@
+<script type="text/html" data-template-name="test-node">
+    <p>Test</p>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-number"><i class="fa fa-tag"></i> Number</label>
+        <input type="number" id="node-input-number" placeholder="number">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="test-node">
+    <p>Test Node</p>
+</script>
+
+<script>
+    RED.nodes.registerType('test-node-2',{
+        category: 'test',
+        defaults: {
+            name: {value: ""},
+            number: {value: 42},
+            array: {value: []},
+            object: {value: {foo: "bar"}}
+        },
+        credentials:{
+            password: {type:"password"}
+        },
+        inputs: 1,
+        outputs: 2,
+        label: "test",
+        icon: "alert.svg"
+    })
+</script>
