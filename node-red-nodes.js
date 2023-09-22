@@ -148,17 +148,19 @@ function examinModule(modulePath) {
     if (package && package["node-red"]) {
         var nodes = package["node-red"].nodes
         package["node-red"].nodes = {}
-        Object.keys(nodes).forEach(n => {
-            const node = nodes[n]
-            const html = node.replace(/\.js$/, ".html")
-            var defs = getNodeDefinitions(path.join(modulePath, html))
-            package.types = package.types.concat(Object.keys(defs))
-
-            package["node-red"].nodes[n] = {
-                file: nodes[n],
-                types: defs
-            }
-        })
+        if (nodes) {
+            Object.keys(nodes).forEach(n => {
+                const node = nodes[n]
+                const html = node.replace(/\.js$/, ".html")
+                var defs = getNodeDefinitions(path.join(modulePath, html))
+                package.types = package.types.concat(Object.keys(defs))
+    
+                package["node-red"].nodes[n] = {
+                    file: nodes[n],
+                    types: defs
+                }
+            })
+        }
     }
 
     return package
